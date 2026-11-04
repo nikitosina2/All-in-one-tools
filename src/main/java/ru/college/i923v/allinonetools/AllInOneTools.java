@@ -2,8 +2,10 @@ package ru.college.i923v.allinonetools;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +20,11 @@ public class AllInOneTools implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
-		LOGGER.info("Проект загружен успешно!");
+
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
+				.register(entries -> entries.accept(ModItems.MULTITOOL));
+
+		LOGGER.info("Проект загружен успешно");
 	}
 
 	public static ResourceLocation id(String path) {
