@@ -31,6 +31,10 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+# fabric
+
+run/
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
